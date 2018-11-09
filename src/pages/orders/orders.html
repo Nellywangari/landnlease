@@ -1,0 +1,68 @@
+<ion-header>
+
+    <ion-navbar>
+        <button ion-button menuToggle>
+                    <ion-icon name="menu"></ion-icon>
+                  </button>
+        <ion-title>Orders</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <!-- my applications  -->
+    <ion-list>
+        <ion-list-header>
+            Applications you have made
+        </ion-list-header>
+        <ion-item-sliding *ngFor="let item of myOrders$ | async">
+            <ion-item>
+                <ion-thumbnail item-start>
+                    <img src="item.imageUrl">
+                </ion-thumbnail>
+                <h2>{{item.product_name}}</h2>
+                <p></p>
+            </ion-item>
+
+            <ion-item-options side="right">
+
+                <button ion-button color="danger" (click)="delete(item)">
+            <ion-icon name="trash"></ion-icon>
+            Delete
+          </button>
+            </ion-item-options>
+        </ion-item-sliding>
+    </ion-list>
+
+    <ion-list>
+        <ion-list-header>
+            Applications made to your posts
+        </ion-list-header>
+        <ion-item-sliding *ngFor="let item of businessOrders$ | async">
+            <ion-item>
+                <ion-thumbnail item-start>
+                    <img [src]="item.imageUrl">
+                </ion-thumbnail>
+                <h2>{{item.product_name}}</h2>
+                <p></p>
+            </ion-item>
+            <ion-item-options side="right">
+                <button ion-button color="secondary" (click)="viewComments(item)">
+              <ion-icon name="chatbubbles"></ion-icon>
+              Comments
+            </button>
+                <button ion-button color="primary" (click)="viewPlayers(item)">
+              <ion-icon name="contacts"></ion-icon>
+              Players
+            </button>
+                <button ion-button color="danger" (click)="delete(item)">
+              <ion-icon name="trash"></ion-icon>
+              Delete
+            </button>
+            </ion-item-options>
+        </ion-item-sliding>
+    </ion-list>
+
+</ion-content>

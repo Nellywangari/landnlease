@@ -1,0 +1,164 @@
+<!--
+  Generated template for the OrderPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-content padding>
+    <ion-card>
+        <ion-card-header>
+            {{selectedProduct.name}}
+        </ion-card-header>
+        <div class="img">
+            <img src="{{ selectedProduct.imgUrl }}">
+        </div>
+
+        <ion-card-content>
+            <div class="description">
+                <p>{{ selectedProduct.description }}</p>
+
+            </div>
+
+            <div class="separate">
+                <ion-row class="product_details">
+                    <ion-col>
+                        <p class="quantity">Farm Size:<span> {{selectedProduct.units}}</span></p>
+                    </ion-col>
+                    <ion-col class="price">
+                        <p class="price">Price: <span>kshs {{ selectedProduct.price }}</span></p>
+                    </ion-col>
+                </ion-row>
+            
+            <ion-grid *ngIf="weather">
+                <ion-row>
+                  
+                  <ion-col width-50 offset-25 >
+                   
+                    <h2 class="location">Temp: {{weather.main.temp}}</h2>
+                 
+                </ion-col>
+                    
+                <ion-col width-50 offset-25 >
+                   
+                    <h2 class="location">Humidity: {{weather.main.humidity}}</h2>
+                 
+                </ion-col>
+                <ion-col width-50 offset-25 >
+                   
+                    <h2 class="location">Temp: {{weather.main.sea_level}}</h2>
+                 
+                </ion-col>
+            
+                </ion-row>
+                
+              </ion-grid>
+        </div>
+        
+
+        
+            
+
+            <ion-row>
+              
+                <!-- <ion-col>
+                    <button ion-button style="margin-left:200px"  (click)="orderProduct()">Make Application</button>
+                </ion-col> -->
+                <!-- <ion-col>
+                    <button ion-button full (click)="calcoutput(product)">Calculate Output</button>
+                </ion-col> -->
+            </ion-row>
+            
+
+            <div class="separate">
+                <p>Farm Located At: {{ selectedProduct.location }}</p>
+
+                <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
+                    <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+                </agm-map>
+
+            </div>
+        </ion-card-content>
+    </ion-card>
+    <div class="container">
+    <div class="detail-block m-t-10 review-wrap">
+         <h2 style="margin-left:300px"> Customer Reviews</h2>
+        <div class="reviews">
+             <div *ngFor="let review of reviews" class="review">
+                 
+                  <div class="review-title">
+                     
+                       <span class="reviewer">
+                            <i class="fa fa-user"></i>
+                            <span>{{review?.username}}</span>
+                       </span>
+                       <br><br>
+                  </div>
+                  <div class="text">{{review?.review}}</div>
+             </div>
+        </div>
+   
+        <div class="review-form">
+             <div class="form-container">
+                  <!-- <div class="row"> -->
+                            <!-- <fieldset class="rating">
+                                      <ng-container *ngFor="let rateVal of [5, 4, 3, 2, 1]"> -->
+                                           <!-- full star -->
+                                           <!-- <input (click)="rateProduct(rateVal)" [id]="'star'+rateVal" [value]="rateVal-0.5" name="rating" type="radio" />
+                                           <label class="full" [for]="'star'+rateVal"></label>
+                                         -->
+                
+                                           <!-- half star -->
+                                           <!-- <input (click)="rateProduct(rateVal-0.5)" [value]="rateVal-0.5" [id]="'halfstar'+rateVal" name="rating" type="radio" />
+                                           <label class="half" [for]="'halfstar'+rateVal"></label>
+                                      </ng-container>
+                                 </fieldset>
+                  </div> -->
+                  <form novalidate [formGroup]="reviewFormGroup" class="cnt-form">
+   
+                       <div class="row">
+                            <div class="col-sm-6">
+                                 <div class="form-group">
+                                      <label for="exampleInputName">Your Name
+                                           <span class="astk">*</span>
+                                      </label>
+                                      <input type="text" formControlName="username" class="form-control txt" id="username" placeholder="">
+                                 </div>
+                                 <br>
+                                 <br>
+                                 <!-- /.form-group -->
+                                 <div class="form-group">
+                                      <label for="exampleInputSummary">Summary
+                                           <span class="astk">*</span>
+                                      </label>
+                                      <input type="text" class="form-control txt" formControlName="summary" id="summary" placeholder="">
+                                 </div>
+                                 <!-- /.form-group -->
+                            </div>
+   <br><br>
+                            <div class="col-md-6">
+                                 <div class="form-group">
+                                      <label for="exampleInputReview">Review
+                                           <span class="astk">*</span>
+                                      </label>
+                                      <textarea class="form-control txt txt-review" formControlName="review" id="review" cols="48" placeholder=""></textarea>
+                                 </div>
+                                 <!-- /.form-group -->
+                            </div>
+                       </div>
+                       <!-- /.row -->
+   <br>
+   <br>
+                       <div class="action text-right">
+                            <button ion-button color='dark' style="margin-left:300px;" (click)="submitReview()" [disabled]="reviewFormGroup.invalid" class="center">SUBMIT REVIEW</button>
+                       </div>
+                       <!-- /.action -->
+   
+                  </form>
+                  <!-- /.cnt-form -->
+             </div>
+             <!-- /.form-container -->
+        </div>
+   </div>
+</div>
+</ion-content>

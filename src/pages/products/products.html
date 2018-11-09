@@ -1,0 +1,41 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+        <ion-title>Featured Farms</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <div class="pins">
+
+
+        <ion-card class="pin" *ngFor="let product of products$ | async">
+            <img [src]="product.imgUrl" />
+            <div *ngIf="product.brief_description" class="post-description">
+                <small>{{ product.brief_description }}</small>
+            </div>
+            <ion-item>
+                <small>{{ product.location }}</small>
+                <p><small>{{ product.price }}</small></p>
+                <p><small>{{ product.units }}</small></p>
+                
+            </ion-item>
+            <ion-item>
+                <button ion-button block (click)="orderPage(product)">See More</button>
+            </ion-item>
+            <ion-item>
+                
+                    <button ion-button full (click)="calcoutput(product)">Calculate Output</button>
+
+            </ion-item>
+        </ion-card>
+    </div>
+
+
+
+    <ion-fab bottom right>
+        <button ion-fab (click)="addProductPage()"><ion-icon name="add" ></ion-icon></button>
+    </ion-fab>
+</ion-content>

@@ -1,0 +1,67 @@
+<ion-content>
+    <ion-card>
+        <div class="coverimg" (click)="chooseimg()">
+            <img src="{{ imgUrl }}">
+        </div>
+        <ion-card-content>
+            <ion-card-title>
+            Add Farm Details
+            </ion-card-title>
+            <ion-list>
+
+                <ion-item>
+                    <ion-label floating>Farm title</ion-label>
+                    <ion-input type="text" [(ngModel)]="product.name"></ion-input>
+                </ion-item>
+
+                <ion-item>
+                    <ion-label floating>Brief Description</ion-label>
+                    <ion-input type="text" [(ngModel)]="product.brief_description"></ion-input>
+                </ion-item>
+
+                <ion-item>
+                    <ion-label floating>Description</ion-label>
+                    <ion-input type="text" [(ngModel)]="product.description"></ion-input>
+                </ion-item>
+
+                <ion-item>
+
+                    <button ion-button block (click)="getLocation()">Set Farm Location</button>
+                </ion-item>
+
+                <ion-item>
+                    <ion-label floating>Size of Farm in Acres</ion-label>
+                    <ion-input type="number" [(ngModel)]="product.units"></ion-input>
+                </ion-item>
+<!--                 
+                    <ion-item>
+                        <ion-label floating>Measurement unit</ion-label>
+                        <ion-input type="text" [(ngModel)]="product.measurement"></ion-input>
+                    </ion-item> -->
+                    <!-- <ion-input type="text" [(ngModel)]="product.measurement"></ion-input> -->
+                
+
+                <ion-item>
+                    <ion-label floating>Price</ion-label>
+                    <ion-input type="number" [(ngModel)]="product.price"></ion-input>
+                </ion-item>
+
+                <ion-item>
+                    <ion-label floating>Category</ion-label>
+
+                    <ion-select multiple="false" cancelText="Cancel" okText="Okay" [(ngModel)]="product.category_id">
+
+                        <ion-option *ngFor="let category of categories | async" value="{{ category?.id }}">{{ category.title }}</ion-option>
+
+                    </ion-select>
+                </ion-item>
+
+                <ion-buttons end>
+                    <button ion-button (click)="upload()">Add Farm<ion-icon  name="send"></ion-icon></button>
+                </ion-buttons>
+
+            </ion-list>
+        </ion-card-content>
+    </ion-card>
+
+</ion-content>

@@ -1,0 +1,91 @@
+<!--
+  Generated template for the CalculateOutputPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>CalculateOutput</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+<div>
+  <!-- <p>
+    {{profit}}
+  
+  </p> -->
+  <p>  Estimated Total Farm Output: {{output}}</p>
+</div>
+  <!-- <table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>price</th>
+            <th>price1</th>
+            <th>sea level</th>
+            <th>produce</th>
+            <th>delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="">
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            
+        
+         < td>{{category.rainfall}}</td>
+            td>{{category.soil}}</td> 
+            <td> -->
+              
+               <!-- <td> <button class="btn btn-default" >delete </button></td>
+        </tr>
+    </tbody> --> 
+ <ion-grid >
+   <ion-row>
+     <ion-col> Acres planted</ion-col>
+     <ion-col>{{selectedProduct.units}} </ion-col>
+     <ion-col>{{selectedProduct.units}} </ion-col>
+   </ion-row>
+  <ion-row>
+    <ion-col>Average sale price</ion-col>
+    <ion-col>1</ion-col>
+    <ion-col>1</ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>Average harvest per acre</ion-col>
+    <ion-col>1</ion-col>
+    <ion-col>1</ion-col>
+  </ion-row>
+  <ion-row style="border-radius:200px;"> 
+    <ion-col>Average revenue</ion-col>
+    <ion-col>1</ion-col>
+    <ion-col>1</ion-col>
+   
+  </ion-row>
+  <ion-row>
+    <ion-col>price of land</ion-col>
+    <ion-col>{{selectedProduct.price}}</ion-col>
+    <ion-col>{{selectedProduct.price}}</ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>Total cost</ion-col>
+    <ion-col>1</ion-col>
+    <ion-col>1</ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>Profit</ion-col>
+    <ion-col>1</ion-col>
+    <ion-col>1</ion-col>
+  </ion-row>
+ </ion-grid>
+
+
+</ion-content>

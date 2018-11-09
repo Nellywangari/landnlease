@@ -1,0 +1,33 @@
+<ion-content padding class="transparent-header" [ngStyle]="{'background-image': 'url(' + backgroundImage +')'}">
+    <div padding>
+        <ion-row>
+            <ion-col>
+                <img class="logo" src="assets/imgs/logo-mailchimp.png" />
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-list inset class="no-border">
+                    <ion-item>
+                        <ion-label>Username</ion-label>
+                        <ion-input [(ngModel)]="creds.username" type="text"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>Email</ion-label>
+                        <ion-input [(ngModel)]="creds.email" type="email"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>Password</ion-label>
+                        <ion-input [(ngModel)]="creds.password" type="password"></ion-input>
+                    </ion-item>
+                </ion-list>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <button ion-button class="login-button" (click)="register()">Sign Up</button>
+            </ion-col>
+        </ion-row>
+
+    </div>
+</ion-content>
